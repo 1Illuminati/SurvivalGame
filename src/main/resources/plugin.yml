@@ -1,0 +1,6 @@
+name: SurvivalGame
+version: 1.0
+main: org.red.survival.SurvivalGame
+api-version: '1.20'
+authors: [Arlecchino, RedKiller]
+description: zzzzzzz
