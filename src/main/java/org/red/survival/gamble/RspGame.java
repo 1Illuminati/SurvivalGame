@@ -88,6 +88,8 @@ public class RspGame {
         void setChoice(RspGameEnum choice);
 
         ItemStack getDisplayItem();
+
+        void setMoney(int money);
     }
 
     private static class RspGameComputer implements RspGameUser {
@@ -106,6 +108,11 @@ public class RspGame {
         @Override
         public ItemStack getDisplayItem() {
             return RSPGameGui.COMPUTER;
+        }
+
+        @Override
+        public void setMoney(int money) {
+
         }
     }
 
@@ -130,6 +137,11 @@ public class RspGame {
         @Override
         public ItemStack getDisplayItem() {
             return Util.getPlayerHead(player);
+        }
+
+        @Override
+        public void setMoney(int money) {
+            player.getEconomyAccount().setBalance(money);
         }
     }
 
