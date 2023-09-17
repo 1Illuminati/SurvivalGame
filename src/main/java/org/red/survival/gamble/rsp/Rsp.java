@@ -1,6 +1,10 @@
 package org.red.survival.gamble.rsp;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.red.library.a_.entity.player.A_Player;
+import org.red.survival.SurvivalGame;
+import org.red.survival.gamble.GambleMenuGui;
 import org.red.survival.gamble.rsp.user.RspUser;
 import org.red.survival.gamble.rsp.user.RspUserComputer;
 import org.red.survival.gamble.rsp.user.RspUserPlayer;
@@ -52,13 +56,30 @@ public class Rsp {
             this.opponent.addMoney(-gameMoney);
         }
 
-        RspGui playerGui = new RspGui(this.player, this.opponent, this);
-        player.getPlayer().openInventory(playerGui.getInventory());
+        this.setUiPlayer(this.player, this.opponent);
 
-        if (opponent instanceof RspUserPlayer rspPlayerOpponent) {
-            RspGui opponentGui = new RspGui(rspPlayerOpponent, this.player, this);
-            rspPlayerOpponent.getPlayer().openInventory(opponentGui.getInventory());
+        if (!isOpponentISComputer()) {
+            this.setUiPlayer((RspUserPlayer) this.opponent, this.player);
         }
+        Bukkit.getScheduler().runTaskLater(SurvivalGame.getPlugin(), this::endGame, 120);
+    }
+
+    public void setUiPlayer(RspUserPlayer player, RspUser opponent) {
+        RspGui playerGui = new RspGui(player, opponent);
+        A_Player aPlayer = player.getPlayer();
+        aPlayer.openInventory(playerGui.getInventory());
+        player.setGui(playerGui);
+
+        for (int i = 0; i < 3; i++) {
+            Bukkit.getScheduler().runTaskLater(SurvivalGame.getPlugin(), () -> {
+                aPlayer.playSound(aPlayer.getLocation(), Sound.BLOCK_ANVIL_PLACE, 1, 1);
+            }, i * 20);
+        }
+        Bukkit.getScheduler().runTaskLater(SurvivalGame.getPlugin(), () -> player.getGui().showResult(), 80);
+        Bukkit.getScheduler().runTaskLater(SurvivalGame.getPlugin(), () -> {
+            aPlayer.closeInventoryIgnoreEvent();
+            aPlayer.openInventory(new GambleMenuGui(aPlayer).getInventory());
+        }, 120);
     }
 
     public void endGame() {

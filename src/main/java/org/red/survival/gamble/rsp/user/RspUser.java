@@ -2,6 +2,7 @@ package org.red.survival.gamble.rsp.user;
 
 import org.bukkit.inventory.ItemStack;
 import org.red.survival.gamble.rsp.RspChoice;
+import org.red.survival.gamble.rsp.RspGui;
 
 public interface RspUser {
     RspChoice getChoice();
@@ -15,4 +16,5 @@ public interface RspUser {
     void addMoney(int money);
 
     void sendMessage(String message);
+
 }

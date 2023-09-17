@@ -95,5 +95,11 @@
             <version>2.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.LoneDev6</groupId>
+            <artifactId>api-itemsadder</artifactId>
+            <version>3.5.0c-r5</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

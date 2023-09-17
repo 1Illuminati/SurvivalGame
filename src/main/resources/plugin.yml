@@ -1,6 +1,14 @@
 name: SurvivalGame
 version: 1.0
 main: org.red.survival.SurvivalGame
-api-version: '1.20'
+api-version: '1.18'
 authors: [Arlecchino, RedKiller]
+depend:
+  - CommediaDell_arte
+  - ItemsAdder
 description: zzzzzzz
+
+
+commands:
+  rsp:
+    description: "rsp game"

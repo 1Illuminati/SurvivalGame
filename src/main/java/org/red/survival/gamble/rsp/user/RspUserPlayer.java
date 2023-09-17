@@ -3,11 +3,13 @@ package org.red.survival.gamble.rsp.user;
 import org.bukkit.inventory.ItemStack;
 import org.red.library.a_.entity.player.A_Player;
 import org.red.survival.gamble.rsp.RspChoice;
+import org.red.survival.gamble.rsp.RspGui;
 import org.red.survival.util.Util;
 
 public class RspUserPlayer implements RspUser {
     private final A_Player player;
     private RspChoice choice = RspChoice.UNKNOWN;
+    private RspGui gui;
 
     public RspUserPlayer(A_Player player) {
         this.player = player;
@@ -45,5 +47,13 @@ public class RspUserPlayer implements RspUser {
 
     public A_Player getPlayer() {
         return player;
+    }
+
+    public void setGui(RspGui gui) {
+        this.gui = gui;
+    }
+
+    public RspGui getGui() {
+        return gui;
     }
 }
