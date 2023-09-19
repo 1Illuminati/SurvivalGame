@@ -19,6 +19,7 @@ public interface Job {
     FisherMan.FisherMan_1 FISHERMAN_1 = new FisherMan.FisherMan_1();
     FisherMan.FisherMan_2 FISHERMAN_2 = new FisherMan.FisherMan_2();
     FisherMan.FisherMan_3 FISHERMAN_3 = new FisherMan.FisherMan_3();
+    Unknown UNKNOWN = new Unknown();
     String displayName();
     ItemStack displayItem();
     JobType getJobType();
@@ -40,6 +41,7 @@ public interface Job {
             case FISHERMAN_1 -> FISHERMAN_1;
             case FISHERMAN_2 -> FISHERMAN_2;
             case FISHERMAN_3 -> FISHERMAN_3;
+            case UNKNOWN -> UNKNOWN;
         };
     }
 

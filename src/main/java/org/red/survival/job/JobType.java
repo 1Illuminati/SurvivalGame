@@ -1,6 +1,8 @@
 package org.red.survival.job;
 
 import org.red.library.a_.entity.player.A_Player;
+import org.red.survival.SurvivalGame;
+
 public enum JobType {
     /**
      * 광부 1차
@@ -49,12 +51,18 @@ public enum JobType {
     /**
      * 낚시꾼 3차
      */
-    FISHERMAN_3();
+    FISHERMAN_3(),
+    /**
+     * 아직 없음
+     */
+    UNKNOWN();
     JobType() {
     }
 
     public static JobType getPlayerJobType(A_Player player) {
-        return JobType.valueOf(player.getDataMap().getString("job"));
+        String jobStr = player.getDataMap().getString("job", UNKNOWN.name());
+        SurvivalGame.sendDebugLog("jobStr: " + jobStr);
+        return JobType.valueOf(jobStr);
     }
 
     public static boolean isPlayerJobType(A_Player player, JobType type) {
