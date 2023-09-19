@@ -1,14 +1,13 @@
 package org.red.survival;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.red.CommediaDell_arte;
 import org.red.library.command.AbstractCommand;
-import org.red.survival.event.listener.FurnitureInteractListener;
-import org.red.survival.gamble.rsp.RspCommand;
+import org.red.survival.event.listener.*;
+import org.red.survival.job.Job;
+import org.red.survival.job.JobCommand;
 
 public final class SurvivalGame extends JavaPlugin {
 
@@ -40,8 +39,12 @@ public final class SurvivalGame extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        this.registerCommand(new RspCommand());
-        this.registerEvent(new FurnitureInteractListener());
+        this.registerCommand(new JobCommand());
+        this.registerEvent(new BlockBreakListener());
+        this.registerEvent(new BlockPlaceListener());
+        this.registerEvent(new FishingListener());
+        this.registerEvent(new EntityDeathListener());
+        Job.load();
     }
 
     @Override

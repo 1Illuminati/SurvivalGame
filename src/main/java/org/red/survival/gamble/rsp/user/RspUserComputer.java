@@ -38,7 +38,7 @@ public class RspUserComputer implements RspUser {
 
     @Override
     public void addMoney(int money) {
-        // Do nothing1
+        // Do nothing
     }
 
     @Override

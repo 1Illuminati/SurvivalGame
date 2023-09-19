@@ -5,10 +5,10 @@ api-version: '1.18'
 authors: [Arlecchino, RedKiller]
 depend:
   - CommediaDell_arte
-  - ItemsAdder
 description: zzzzzzz
 
 
 commands:
-  rsp:
-    description: "rsp game"
+  job:
+    description: "get job book command"
+    permission: op

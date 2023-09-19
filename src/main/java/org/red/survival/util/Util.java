@@ -13,4 +13,8 @@ public class Util {
 
         return itemStack;
     }
+
+    public static boolean random(double per) {
+        return Math.random() * 100 < per;
+    }
 }
