@@ -24,7 +24,7 @@ public abstract class Farmer implements Job {
 
         @Override
         public String displayName() {
-            return "농부1차";
+            return "농부 1차";
         }
 
         @Override
@@ -59,7 +59,7 @@ public abstract class Farmer implements Job {
 
         @Override
         public String displayName() {
-            return "농부2차";
+            return "농부 2차";
         }
 
         @Override
@@ -93,7 +93,7 @@ public abstract class Farmer implements Job {
 
         @Override
         public String displayName() {
-            return "농부3차";
+            return "농부 3차";
         }
 
         @Override

@@ -61,7 +61,6 @@ public enum JobType {
 
     public static JobType getPlayerJobType(A_Player player) {
         String jobStr = player.getDataMap().getString("job", UNKNOWN.name());
-        SurvivalGame.sendDebugLog("jobStr: " + jobStr);
         return JobType.valueOf(jobStr);
     }
 

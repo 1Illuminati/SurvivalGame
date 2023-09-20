@@ -24,7 +24,7 @@ public abstract class Hunter implements Job {
 
         @Override
         public String displayName() {
-            return "헌터1차";
+            return "헌터 1차";
         }
 
         @Override
@@ -59,7 +59,7 @@ public abstract class Hunter implements Job {
 
         @Override
         public String displayName() {
-            return "헌터2차";
+            return "헌터 2차";
         }
 
         @Override
@@ -94,7 +94,7 @@ public abstract class Hunter implements Job {
 
         @Override
         public String displayName() {
-            return "헌터3차";
+            return "헌터 3차";
         }
 
         @Override

@@ -24,7 +24,7 @@ public abstract class FisherMan implements Job {
 
         @Override
         public String displayName() {
-            return "어부1차";
+            return "어부 1차";
         }
 
         @Override
@@ -59,7 +59,7 @@ public abstract class FisherMan implements Job {
 
         @Override
         public String displayName() {
-            return "어부2차";
+            return "어부 2차";
         }
 
         @Override
@@ -94,7 +94,7 @@ public abstract class FisherMan implements Job {
 
         @Override
         public String displayName() {
-            return "어부3차";
+            return "어부 3차";
         }
 
         @Override

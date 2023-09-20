@@ -23,7 +23,7 @@ public abstract class Miner implements Job {
 
         @Override
         public String displayName() {
-            return "광부1차";
+            return "광부 1차";
         }
 
         @Override
@@ -58,7 +58,7 @@ public abstract class Miner implements Job {
 
         @Override
         public String displayName() {
-            return "광부2차";
+            return "광부 2차";
         }
 
         @Override
@@ -93,7 +93,7 @@ public abstract class Miner implements Job {
 
         @Override
         public String displayName() {
-            return "광부3차";
+            return "광부 3차";
         }
 
         @Override
