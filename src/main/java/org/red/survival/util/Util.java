@@ -1,5 +1,7 @@
 package org.red.survival.util;
 
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.red.library.a_.entity.player.A_Player;
@@ -16,5 +18,12 @@ public class Util {
 
     public static boolean random(double per) {
         return Math.random() * 100 < per;
+    }
+
+    public static void dropNaturally(Block block, ItemStack itemStack)  {
+        World world = block.getWorld();
+        for (ItemStack drop : block.getDrops(itemStack)) {
+            world.dropItemNaturally(block.getLocation(), drop);
+        }
     }
 }

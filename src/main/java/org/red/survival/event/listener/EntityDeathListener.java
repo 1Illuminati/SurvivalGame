@@ -1,7 +1,6 @@
 package org.red.survival.event.listener;
 
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -14,13 +13,24 @@ import org.red.survival.util.Util;
 public class EntityDeathListener implements Listener {
     @EventHandler
     public void event(EntityDeathEvent event) {
-        Entity entity = event.getEntity();
+        LivingEntity entity = event.getEntity();
         EntityDamageEvent lastDamageCause = entity.getLastDamageCause();
 
         if (lastDamageCause == null) return;
 
         if (lastDamageCause instanceof EntityDamageByEntityEvent damageByEntityEvent) {
-            if (damageByEntityEvent.getDamager() instanceof Player player) {
+            if (entity instanceof Player || entity instanceof ArmorStand) {
+                return;
+            }
+
+            Entity damager = damageByEntityEvent.getDamager();
+            if (damager instanceof Projectile projectile) {
+                if (!(projectile instanceof Player)) {
+                    return;
+                }
+                damager = (Entity) projectile.getShooter();
+            }
+            if (damager instanceof Player player) {
                 A_Player aPlayer = A_Player.getAPlayer(player);
                 JobType job = JobType.getPlayerJobType(aPlayer);
 

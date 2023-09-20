@@ -44,6 +44,7 @@ public final class SurvivalGame extends JavaPlugin {
         this.registerEvent(new BlockPlaceListener());
         this.registerEvent(new FishingListener());
         this.registerEvent(new EntityDeathListener());
+        this.registerEvent(new PlayerJoinListener());
         Job.load();
     }
 
