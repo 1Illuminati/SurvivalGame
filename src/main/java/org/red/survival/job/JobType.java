@@ -1,7 +1,6 @@
 package org.red.survival.job;
 
 import org.red.library.a_.entity.player.A_Player;
-import org.red.survival.SurvivalGame;
 
 public enum JobType {
     /**

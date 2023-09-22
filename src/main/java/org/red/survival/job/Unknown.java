@@ -7,7 +7,6 @@ import org.red.library.item.ItemBuilder;
 
 public class Unknown implements Job {
     private final ItemStack display = new ItemBuilder(Material.LEATHER_CHESTPLATE).setDisplayName(ChatColor.WHITE + displayName()).build();
-    private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
     @Override
     public String displayName() {
         return "무직";
@@ -28,15 +27,5 @@ public class Unknown implements Job {
         return new String[] {
             ChatColor.WHITE + "무직입니다."
         };
-    }
-
-    @Override
-    public Job[] jobLevels() {
-        return new Job[0];
-    }
-
-    @Override
-    public ItemStack jobBook() {
-        return book;
     }
 }

@@ -1,6 +1,9 @@
 package org.red.survival.job;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.red.library.item.ItemBuilder;
 import org.red.survival.job.farmer.Farmer;
 import org.red.survival.job.fisherman.FisherMan;
 import org.red.survival.job.hunter.Hunter;
@@ -24,8 +27,9 @@ public interface Job {
     ItemStack displayItem();
     JobType getJobType();
     String[] jobDescription();
-    Job[] jobLevels();
-    ItemStack jobBook();
+    default ItemStack jobBook() {
+        return new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + "전직 북").setLore(jobDescription()).build();
+    }
 
     static Job getJobByJobType(JobType type) {
         return switch (type) {

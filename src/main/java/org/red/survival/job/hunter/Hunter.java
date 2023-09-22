@@ -9,19 +9,8 @@ import org.red.survival.job.JobBookEvent;
 import org.red.survival.job.JobType;
 
 public abstract class Hunter implements Job {
-    @Override
-    public Job[] jobLevels() {
-        return new Hunter[] {
-                new Hunter_1(),
-                new Hunter_2(),
-                new Hunter_3()
-        };
-    }
     public static class Hunter_1 extends Hunter {
-
         private final ItemStack display = new ItemBuilder(Material.WOODEN_SWORD).setDisplayName(ChatColor.WHITE + displayName()).build();
-        private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
-
         @Override
         public String displayName() {
             return "헌터 1차";
@@ -40,22 +29,18 @@ public abstract class Hunter implements Job {
         @Override
         public String[] jobDescription() {
             return new String[] {
-                    ChatColor.WHITE + displayName(),
-                    "",
-                    ChatColor.WHITE + "33%확률로 사냥한 몬스터 혹은 동물의 전리품이 2배가 됩니다."
+                ChatColor.WHITE + "직업: "+ ChatColor.GRAY + displayName(),
+                "",
+                ChatColor.WHITE + "능력",
+                ChatColor.GRAY + "- 15%확률로 사냥한 동물의 전리품이 2배가 됩니다.",
+                "",
+                ChatColor.WHITE + "쉬프트 우클릭시 해당 직업으로 전직하게 됩니다.",
             };
-        }
-
-        @Override
-        public ItemStack jobBook() {
-            return book;
         }
     }
 
     public static class Hunter_2 extends Hunter {
-
         private final ItemStack display = new ItemBuilder(Material.IRON_SWORD).setDisplayName(ChatColor.WHITE + displayName()).build();
-        private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
 
         @Override
         public String displayName() {
@@ -75,23 +60,19 @@ public abstract class Hunter implements Job {
         @Override
         public String[] jobDescription() {
             return new String[] {
-                    ChatColor.WHITE + displayName(),
-                    "",
-                    ChatColor.WHITE + "66%확률로 사냥한 몬스터 혹은 동물의 전리품이 2배가 됩니다."
+                ChatColor.WHITE + "직업: "+ ChatColor.GRAY + displayName(),
+                "",
+                ChatColor.WHITE + "능력",
+                ChatColor.GRAY + "- 30%확률로 사냥한 동물의 전리품이 2배가 됩니다.",
+                ChatColor.GRAY + "- 15%확률로 주는 데미지가 2배가 됩니다.",
+                "",
+                ChatColor.WHITE + "쉬프트 우클릭시 해당 직업으로 전직하게 됩니다.",
             };
-        }
-
-        @Override
-        public ItemStack jobBook() {
-            return book;
         }
     }
 
     public static class Hunter_3 extends Hunter {
-
         private final ItemStack display = new ItemBuilder(Material.NETHERITE_SWORD).setDisplayName(ChatColor.WHITE + displayName()).build();
-        private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
-
         @Override
         public String displayName() {
             return "헌터 3차";
@@ -110,15 +91,15 @@ public abstract class Hunter implements Job {
         @Override
         public String[] jobDescription() {
             return new String[] {
-                    ChatColor.WHITE + displayName(),
-                    "",
-                    ChatColor.WHITE + "99%확률로 사냥한 몬스터 혹은 동물의 전리품이 2배가 됩니다."
+                ChatColor.WHITE + "직업: "+ ChatColor.GRAY + displayName(),
+                "",
+                ChatColor.WHITE + "능력",
+                ChatColor.GRAY + "- 45%확률로 사냥한 동물의 전리품이 2배가 됩니다.",
+                ChatColor.GRAY + "- 30%확률로 주는 데미지가 2배가 됩니다.",
+                ChatColor.GRAY + "- 몬스터 혹은 동물을 죽일때 마다 체력을 2칸 회복합니다.",
+                "",
+                ChatColor.WHITE + "쉬프트 우클릭시 해당 직업으로 전직하게 됩니다.",
             };
-        }
-
-        @Override
-        public ItemStack jobBook() {
-            return book;
         }
     }
 }

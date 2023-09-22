@@ -9,18 +9,8 @@ import org.red.survival.job.JobBookEvent;
 import org.red.survival.job.JobType;
 
 public abstract class Miner implements Job {
-    @Override
-    public Job[] jobLevels() {
-        return new Miner[] {
-                new Miner_1(),
-                new Miner_2(),
-                new Miner_3()
-        };
-    }
     public static class Miner_1 extends Miner {
         private final ItemStack display = new ItemBuilder(Material.WOODEN_PICKAXE).setDisplayName(ChatColor.WHITE + displayName()).build();
-        private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
-
         @Override
         public String displayName() {
             return "광부 1차";
@@ -39,23 +29,18 @@ public abstract class Miner implements Job {
         @Override
         public String[] jobDescription() {
             return new String[] {
-                    ChatColor.WHITE + displayName(),
-                    "",
-                    ChatColor.WHITE + "33%확률로 채굴한 광물의 드랍템이 2배가 됩니다."
+                ChatColor.WHITE + "직업: "+ ChatColor.GRAY + displayName(),
+                "",
+                ChatColor.WHITE + "능력",
+                ChatColor.GRAY + "- 15%확률로 채굴한 광물의 양이 2배가 됩니다.",
+                "",
+                ChatColor.WHITE + "쉬프트 우클릭시 해당 직업으로 전직하게 됩니다.",
             };
-        }
-
-        @Override
-        public ItemStack jobBook() {
-            return book;
         }
     }
 
     public static class Miner_2 extends Miner {
-
         private final ItemStack display = new ItemBuilder(Material.IRON_PICKAXE).setDisplayName(ChatColor.WHITE + displayName()).build();
-        private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
-
         @Override
         public String displayName() {
             return "광부 2차";
@@ -74,23 +59,19 @@ public abstract class Miner implements Job {
         @Override
         public String[] jobDescription() {
             return new String[] {
-                    ChatColor.WHITE + displayName(),
-                    "",
-                    ChatColor.WHITE + "66%확률로 채굴한 광물의 드랍템이 2배가 됩니다."
+                ChatColor.WHITE + "직업: "+ ChatColor.GRAY + displayName(),
+                "",
+                ChatColor.WHITE + "능력",
+                ChatColor.GRAY + "- 30%확률로 채굴한 광물 혹은 돌의 양이 2배가 됩니다.",
+                ChatColor.GRAY + "- 광물 혹은 돌을 채굴한 후 20%확률로 5초간 성급함II 부여됩니다.",
+                "",
+                ChatColor.WHITE + "쉬프트 우클릭시 해당 직업으로 전직하게 됩니다.",
             };
-        }
-
-        @Override
-        public ItemStack jobBook() {
-            return book;
         }
     }
 
     public static class Miner_3 extends Miner {
-
         private final ItemStack display = new ItemBuilder(Material.NETHERITE_PICKAXE).setDisplayName(ChatColor.WHITE + displayName()).build();
-        private final ItemStack book = new ItemBuilder(Material.ENCHANTED_BOOK).setEventItem(new JobBookEvent(this)).setDisplayName(ChatColor.YELLOW + displayName()).setLore(jobDescription()).build();
-
         @Override
         public String displayName() {
             return "광부 3차";
@@ -109,15 +90,15 @@ public abstract class Miner implements Job {
         @Override
         public String[] jobDescription() {
             return new String[] {
-                    ChatColor.WHITE + displayName(),
-                    "",
-                    ChatColor.WHITE + "99%확률로 채굴한 광물의 드랍템이 2배가 됩니다."
+                ChatColor.WHITE + "직업: "+ ChatColor.GRAY + displayName(),
+                "",
+                ChatColor.WHITE + "능력",
+                ChatColor.GRAY + "- 45%확률로 채굴한 광물 혹은 돌의 양이 2배가 됩니다.",
+                ChatColor.GRAY + "- 광물 혹은 돌을 채굴한 후 40%확률로 10초간 성급함II 부여됩니다.",
+                ChatColor.GRAY + "- 돌을 채굴한 후 25%확률로 랜덤한 광물이 드랍됩니다.",
+                "",
+                ChatColor.WHITE + "쉬프트 우클릭시 해당 직업으로 전직하게 됩니다.",
             };
-        }
-
-        @Override
-        public ItemStack jobBook() {
-            return book;
         }
     }
 }
